@@ -52,27 +52,27 @@ public class Concierto implements Serializable{
         this.artista = artista;
     }
 
-    public int getCosto() {
+    public String getCosto() {
         return costo;
     }
 
-    public void setCosto(int costo) {
+    public void setCosto(String costo) {
         this.costo = costo;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public int getCapacidad_Maxima() {
+    public String getCapacidad_Maxima() {
         return capacidad_Maxima;
     }
 
-    public void setCapacidad_Maxima(int capacidad_Maxima) {
+    public void setCapacidad_Maxima(String capacidad_Maxima) {
         this.capacidad_Maxima = capacidad_Maxima;
     }
 
@@ -83,6 +83,6 @@ public class Concierto implements Serializable{
     public void setLugar(Lugar lugar) {
         this.lugar = lugar;
     }
-    
-    
+
+ 
 }
