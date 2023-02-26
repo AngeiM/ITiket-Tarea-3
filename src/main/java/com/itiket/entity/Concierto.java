@@ -28,9 +28,9 @@ public class Concierto implements Serializable{
     private long id;
     
     private String artista;
-    private int costo;
-    private Date fecha;
-    private int capacidad_Maxima;
+    private String costo;
+    private String fecha;
+    private String capacidad_Maxima;
     
     @ManyToOne
     @JoinColumn (name = "lugar_id")
