@@ -15,7 +15,7 @@
                     <li><a href="/">Inicio</a></li>
                     <li><a href="#">Crear Ticket</a></li>
                     <li><a href="#">Eliminar Ticket</a></li>
-                    <li><a href="/concierto">Visualizar Ticket</a></li>
+                    <li><a href="#">Visualizar Ticket</a></li>
                 </ul>
             </nav>
         </header>
@@ -28,6 +28,8 @@
                         <th scope="col">Costo</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Capacidad </th>
+                        <th scope="col">Lugar </th>
+                        <th scope="col">Visualizar Tiket </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,7 +38,9 @@
                         <td th:text="${user.getArtista}"></td>
                         <td th:text="${user.getCosto}"></td>
                         <td th:text="${user.getFecha}"></td>
-                        <td th:text="${user.getCapacidad_Maxima}"></td>
+                        <td th:text="${user.getCapacidad_maxima}"></td>
+                        <td th:text="${user.getLugar.getLugar}"></td>
+                        <td> <a th:href="vTiket">Visualizar</a></td>
                     </tr>
                 </th:block>
                 </tbody>

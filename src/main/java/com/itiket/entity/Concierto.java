@@ -13,7 +13,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *
@@ -30,7 +29,7 @@ public class Concierto implements Serializable{
     private String artista;
     private String costo;
     private String fecha;
-    private String capacidad_Maxima;
+    private String capacidad_maxima;
     
     @ManyToOne
     @JoinColumn (name = "lugar_id")
@@ -68,12 +67,12 @@ public class Concierto implements Serializable{
         this.fecha = fecha;
     }
 
-    public String getCapacidad_Maxima() {
-        return capacidad_Maxima;
+    public String getCapacidad_maxima() {
+        return capacidad_maxima;
     }
 
-    public void setCapacidad_Maxima(String capacidad_Maxima) {
-        this.capacidad_Maxima = capacidad_Maxima;
+    public void setCapacidad_maxima(String capacidad_maxima) {
+        this.capacidad_maxima = capacidad_maxima;
     }
 
     public Lugar getLugar() {
