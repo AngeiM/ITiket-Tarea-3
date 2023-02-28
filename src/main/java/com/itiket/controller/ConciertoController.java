@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -43,5 +44,29 @@ public class ConciertoController {
         model.addAttribute("concierto", new Concierto());
         model.addAttribute("lugar", listaLugar);
         return "crear";
+    }
+
+    @GetMapping("/CrearConcierto")
+    public String nuevoConcierto(Concierto concierto) {
+        return "modificarConcierto";
+    }
+
+    @PostMapping("/GuardarConcierto")
+    public String GuardarConcierto(Concierto concierto) {
+        conciertoService.saveConcierto(concierto);
+        return "redirect:/";
+    }
+
+    @GetMapping("/editConcierto/{id}")
+    public String modificarConcierto(Concierto concierto, Model model) {
+        concierto = conciertoService.getConcierto(concierto);
+        model.addAttribute("concierto", concierto);
+        return "modificarConcierto";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(Concierto concierto, Model model) {
+        conciertoService.delete(concierto);
+        return "redirect:/";
     }
 }

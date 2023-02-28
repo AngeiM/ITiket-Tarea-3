@@ -13,9 +13,8 @@
             <nav>
                 <ul>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="#">Crear Ticket</a></li>
-                    <li><a href="#">Eliminar Ticket</a></li>
-                    <li><a href="#">Visualizar Ticket</a></li>
+                    <li><a th:href="@{/CrearConcierto}">Crear Ticket</a></li>
+
                 </ul>
             </nav>
         </header>
@@ -29,7 +28,8 @@
                         <th scope="col">Fecha</th>
                         <th scope="col">Capacidad </th>
                         <th scope="col">Lugar </th>
-                        <th scope="col">Visualizar Tiket </th>
+                        <th scope="col">Modificar </th>
+                        <th scope="col">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,9 @@
                         <td th:text="${user.getFecha}"></td>
                         <td th:text="${user.getCapacidad_maxima}"></td>
                         <td th:text="${user.getLugar.getLugar}"></td>
-                        <td> <a th:href="vTiket">Visualizar</a></td>
+                        <td> <a th:href="@{/editConcierto/{id}(id=${user.getId})}">Modificar</a> </td>
+                        <td> <a th:href="@{/delete/{id}(id=${user.getId})}">Eliminar</a> </td>
+
                     </tr>
                 </th:block>
                 </tbody>

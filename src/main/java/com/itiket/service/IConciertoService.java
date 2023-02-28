@@ -13,8 +13,10 @@ import java.util.List;
  * @author User
  */
 public interface IConciertoService {
-    public List<Concierto> getAllConcierto();
-    public Concierto getConciertoId(long id);
+    public List<Concierto> getConciertoId(Concierto concierto);
     public void saveConcierto(Concierto concierto);
-    public void delete (long id);
+    public void delete (Concierto concierto);
+    public Concierto getConcierto(Concierto concierto);
+
+    public List<Concierto> getAllConcierto();
 }

@@ -10,35 +10,44 @@ import com.itiket.repository.ConciertoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author User
  */
 @Service
-public class ConciertoService implements IConciertoService{
+public class ConciertoService implements IConciertoService {
 
     @Autowired
     private ConciertoRepository conciertoRepository;
-    
+
     @Override
     public List<Concierto> getAllConcierto() {
-       return (List<Concierto>)conciertoRepository.findAll();
+        return (List<Concierto>) conciertoRepository.findAll();
     }
 
     @Override
-    public Concierto getConciertoId(long id) {
-        return conciertoRepository.findById(id).orElse(null);
+    @Transactional(readOnly = true)
+    public List<Concierto> getConciertoId(Concierto concierto) {
+        return (List<Concierto>) conciertoRepository.findAll();
     }
 
     @Override
+    @Transactional
     public void saveConcierto(Concierto concierto) {
         conciertoRepository.save(concierto);
     }
 
     @Override
-    public void delete(long id) {
-        conciertoRepository.deleteById(id);
+    @Transactional
+    public void delete(Concierto concierto) {
+        conciertoRepository.delete(concierto);
     }
-    
+
+    @Override
+    @Transactional(readOnly = true)
+    public Concierto getConcierto(Concierto concierto) {
+        return conciertoRepository.findById(concierto.getId()).orElse(null);
+    }
 }
